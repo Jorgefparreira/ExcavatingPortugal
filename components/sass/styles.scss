@@ -1,6 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import 'dig';
+@import 'mediaQ';
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
+
 body {
   background-color: #3c3c3d;
+}
+
+#map {
+  height: 400px;
+  width: 1000px;
+}
+
+html, 
+body {
+  height: 100%;
+  margin: 0 !important;
+}
+
+.main-container {
+  min-height: 100%;
 }
 
 .header {
@@ -8,12 +26,27 @@ body {
   border-radius: 10px;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
+p,
+h1,
+h3 {
+  color: #f2f2f2;  
+}
+
 h1 {
-  font-size: 42px;
+  font-size: 2.5em;
   font-family: 'Libre Baskerville', serif;
   padding: 10px 0;
   text-align: center;
-  color: #f2f2f2;
+
+}
+
+p {
+  font-size: 1.3em;
+  text-align: justify;
 }
 
 .wrapper {
@@ -42,21 +75,24 @@ h1 {
   grid-column: span 4;
   grid-row: span 3;
 }
+
 .image2 {
-  grid-column: span 3 ;
+  grid-column: span 3;
   grid-row: span 3;
 }
+
 .image3 {
-  grid-column: span 3 ;
-  grid-row: span 4 ;
+  grid-column: span 3;
+  grid-row: span 4;
 }
+
 .image4 {
-  grid-column: span 7 ;
+  grid-column: span 7;
   grid-row: span 3;
 }
 
 .image5 {
-  grid-column: span 3 ;
+  grid-column: span 3;
   grid-row: span 2;
 }
 
@@ -73,6 +109,24 @@ h1 {
   line-height: 0;
 }
 
+footer {
+  height: 50px;
+  border-top: 2px solid #f2f2f2;
+}
+
+#copyright {
+  margin-top: 15px;
+}
+
+.social-media-link {
+  padding-left: 10px;
+  height: 40px;
+}
+
+.social-media {
+  margin-top: 5px;
+  padding : 5px auto !important;
+}
 
 @media (max-width: 800px) {
   .image1 {
@@ -86,18 +140,21 @@ h1 {
   .image1 img,
   .image2 img {
     height: 300px;
-  }  
+  }
 
   .image3 {
     display: none;
   }
 
   .image4 {
-    grid-column: span 10 ;
+    grid-column: span 10;
     grid-row: span 3;
-  } 
-}
+  }
 
+  .tile-descr {
+    display: block;
+  }
+}
 @media (max-width: 600px) {
   .tile {
     border-radius: 0;
@@ -107,4 +164,30 @@ h1 {
   .tile img {
     width: 100%;
   }
+
+  .header {
+    font-size: 0.8em;
+  }
+
+  .dig-gallery img {
+    padding: 10px 0;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
 }
+
+@media (min-width: 766px) {
+  #copyright {
+    float: right;
+  }
+  #copyright p {
+    float: right;
+    margin: 0;
+  }
+}
+
+
+

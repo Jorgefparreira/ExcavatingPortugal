@@ -9,6 +9,7 @@
   "author": "Jorge Parreira",
   "license": "ISC",
   "devDependencies": {
+    "angular-carousel": "^1.1.0",
     "browserify": "^14.4.0",
     "compass": "^0.1.1",
     "gulp": "^3.9.1",

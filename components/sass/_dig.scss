@@ -1,0 +1,35 @@
+.back-to {
+  height: 30px;
+  width: 100px;
+  margin: 20px;
+  background-color: #3c3c3d;	
+  border-radius: 15px;
+  border: 1px solid #f2f2f2;
+}
+
+.back-to a {
+	padding: 11px 14px;
+	font-size: 20px;
+	color: #f2f2f2;
+}
+
+.dig-gallery img {
+	padding: 0 20px 20px 20px;
+}
+
+
+.dig-text {
+	font-size: 1.4em;
+}
+
+iframe {
+	padding: 0 15px;
+	opacity: 0.9;
+}
+
+#dig2,
+#dig3,
+#dig4,
+#dig5 {
+	display: none;
+}

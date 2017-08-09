@@ -111,7 +111,8 @@ gulp.task('connect-pro', function(){
 gulp.task('watch', function() {
   gulp.watch('components/sass/*.scss', ['sass-dev']);
   gulp.watch('builds/development/*.html', ['html-copy']);
-  gulp.watch(jsCopySources, ['js-copy']);
+  gulp.watch('builds/development/partials/*.html', ['partials-copy']);  
+  gulp.watch('builds/development/js/*.*', ['js-copy']);
 });
 
 // html changes
@@ -122,10 +123,18 @@ gulp.task('html-copy', function() {
     .pipe(connect.reload())
 });
 
+// partials changes
+
+gulp.task('partials-copy', function() {
+  gulp.src('builds/development/partials/*.html')
+    .pipe(gulp.dest('builds/production/partials'))
+    .pipe(connect.reload())
+});
+
 // js changes
 
 gulp.task('js-copy', function () {
-  gulp.src(jsCopySources)
+  gulp.src('builds/development/js/*.*')
     .pipe(gulp.dest('builds/production/js'))
     .pipe(connect.reload())
 });
@@ -135,5 +144,5 @@ gulp.task('live', ['watch', 'connect-dev']);
 
 gulp.task('pro', ['sass-pro', 'js-min', 'json-min', 'image-min', 'html-min']);
 
-gulp.task('default', ['sass-dev','js-copy', 'html-copy']);
+gulp.task('default', ['sass-dev','js-copy', 'html-copy', 'partials-copy']);
 
