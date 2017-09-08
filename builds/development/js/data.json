@@ -5,18 +5,43 @@
     "anchor":"#!excavation/0",
     "coverImage":"img/image_1.jpg",
     "text":"The excavation of 10 trenches by a team of archaeologists from the ERA, Arqueologia unit took place in the historical centre of Peniche in 2012. Inside these, the team found several walls made of irregular blocks of stone, without the use of any mortar, that had been severely affected by the construction of modern houses. Considerable quantities of pottery recovered from layers associated with these structures permitted their dating to the XVI and XVII centuries, mainly due to the presence of faience with manganese decorations.",
-    "images": [{"image1": "img/peniche1.jpg", "image2": "img/peniche2.jpg", "image3": "img/peniche3.jpg", "image4": "img/peniche4.jpg"}]
-    
+    "images": [{
+      "image1": "img/peniche1.jpg", 
+      "image2": "img/peniche2.jpg", 
+      "image3": "img/peniche3.jpg", 
+      "image4": "img/peniche4.jpg"
+    }],
+    "finds": [{
+      "tooltip1": "Fragment of a small pot with moulded decoration from the XVI/XVII centuries.", 
+      "findImg1": "img/peniche-find1.png",
+      "tooltip2": "Faience with blue motifs dating from the XVI/XVII centuries.", 
+      "findImg2": "img/peniche-find2.png",
+      "tooltip3": "Coarse ware brazier of undetermined chronology.",
+      "findImg3": "img/peniche-find3.png"
+    }],
+    "mapPosition": { "lat" : 39.355422, "long" : -9.3813061}
   },
   {
     "id":"dig2",
-    "name":"Coming Soon",
-    "name2":"Praça Dom Luís I, Lisbon",
+    "name":"Praça Dom Luís I, Lisbon",
     "anchor":"#!excavation/1",
     "coverImage":"img/image_2.jpg",
-    "notice":"Please see",
-    "link":"Rua Afonso de Albuquerque,Peniche", 
-    "anchor2":"#!excavation/0"
+    "text":"In January 2013, during the brief archaeological control survey undertaken by ERA Arqueologia S. A. for the construction of an underground parking lot in Praça D. Luís I, in Lisbon (Figure 1), a cluster of Roman ceramics and other artefacts began to appear at a height of 4m below sea level. Construction works were then stopped and an archaeological excavation was undertaken, uncovering a layer of exclusively Roman materials, more concentrated to the northeast of this area (Figure 2), becoming more dispersed to the west and south, amounting to a total area of 254 square meters. The excavation was limited to the north by the foundation wall of the parking lot, where this layer was truncated. At the centre of this cluster there was a 9m-long plank, which presented the pinned tenons typical of Roman shipbuilders. These artefacts lay in a location that in Roman times would have been approximately 100m into the Tagus River. It would seem therefore that this assemblage represents the rubbish dumped by ships, creating a layer of pottery on the riverbed dating between the 2nd/1st century BC and the 5th century AD. Despite the proximity to the Iron Age / Roman city of Olisipo, it should be noted that this site was located at least 700m away from the city’s border during the imperial period.",
+    "images": [{
+      "image1": "img/dluis1.jpg",
+      "image2": "img/dluis2.jpg",
+      "image3": "img/dluis3.jpg",
+      "image4": "img/dluis4.jpg"
+    }],
+    "finds": [{
+      "tooltip1": "Small Terra Sigillata bowl produced in Gaul in the I/II century A.D. ", 
+      "findImg1": "img/dluis-find1.png",
+      "tooltip2": "Thin walled cup with moulded floral decoration from the early I century A.D.", 
+      "findImg2": "img/dluis-find2.png",
+      "tooltip3": "      Several pine cones were found alongside the Roman ceramics.",
+      "findImg3": "img/dluis-find3.png"
+    }],    
+    "mapPosition": { "lat" : 38.707447, "long" : -9.146875}
   },
   {
     "id":"dig3",
@@ -25,8 +50,11 @@
     "anchor":"#!excavation/2",
     "coverImage":"img/image_3.jpg",
     "notice":"Please see",
+    "notice2":"or",
     "link":"Rua Afonso de Albuquerque,Peniche", 
-    "anchor2":"#!excavation/0"
+    "link2":"Praça Dom Luís I, Lisbon",
+    "anchor2":"#!excavation/0",
+    "anchor3":"#!excavation/1"
   },
   {
     "id":"dig4",
@@ -35,8 +63,11 @@
     "anchor":"#!excavation/3",
     "coverImage":"img/image_4.jpg",
     "notice":"Please see",
+    "notice2":"or",
     "link":"Rua Afonso de Albuquerque,Peniche", 
-    "anchor2":"#!excavation/0"
+    "link2":"Praça Dom Luís I, Lisbon",
+    "anchor2":"#!excavation/0",
+    "anchor3":"#!excavation/1"
   },
   {
     "id":"dig5",
@@ -45,7 +76,10 @@
     "anchor":"#!excavation/4",
     "coverImage":"img/image_5.jpg",
     "notice":"Please see",
+    "notice2":"or",
     "link":"Rua Afonso de Albuquerque,Peniche", 
-    "anchor2":"#!excavation/0"
+    "link2":"Praça Dom Luís I, Lisbon",
+    "anchor2":"#!excavation/0",
+    "anchor3":"#!excavation/1"
   }
 ]}

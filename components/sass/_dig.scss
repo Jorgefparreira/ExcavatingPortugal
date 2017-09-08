@@ -1,3 +1,17 @@
+hr { 
+  padding: 0;
+  margin-bottom: 0;
+  border: none; 
+  border-top: medium solid #8c8c8c; 
+  color: #f2f2f2; 
+  text-align: center; 
+} 
+
+.swing-ani {
+	@include animation(swing 0.4s linear infinite alternate);
+	display: inline-block;
+}
+
 .back-to {
   height: 30px;
   width: 100px;
@@ -19,17 +33,64 @@
 
 
 .dig-text {
-	font-size: 1.4em;
+	font-size: 1.3em;
 }
 
-iframe {
-	padding: 0 15px;
-	opacity: 0.9;
+.find-row {
+	padding-bottom: 15px;
 }
 
-#dig2,
+.find-row h2 {
+	padding-left: 15px;
+}
+
+.find-tile {
+	align-items: center;
+	display: inline-block;
+	padding-top: 100px;
+}
+
+
+.find-tile img {
+	padding-top: 10px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.8;
+  @include transition(all 0.5s ease-out);
+}
+
+.tooltip {
+	padding-top: 10px;
+	font-size: 1.5em;
+	text-align: left;
+	z-index: -1;
+	@include transition(all 0.5s ease-out)
+}
+
+.my-tooltip + .tooltip > .tooltip-arrow {
+	border-color: #3c3c3d !important;
+}
+
+.my-tooltip + .tooltip > .tooltip-inner {
+	background-color: #3c3c3d;
+}
+
+.tooltip-inner {
+  max-width: 450px;
+  width: 450px; 
+}
+
+
 #dig3,
 #dig4,
 #dig5 {
 	display: none;
+}
+
+#map {
+	height: 450px;
+	width: 100%;
+	background-color: white;
+	padding: 0 15px;
+	opacity: 0.8;
 }

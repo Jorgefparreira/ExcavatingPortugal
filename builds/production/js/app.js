@@ -1,6 +1,8 @@
 var app = angular.module('excavating_portugal', [
     'ngRoute',
-    'digControllers'
+    'digControllers',
+    'ngTouch',
+    'ngAnimate'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {

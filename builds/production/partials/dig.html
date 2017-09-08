@@ -5,9 +5,9 @@
 	<br>
 	<div class="container">
 		<div class="row">
+			<h3>{{digs[whichItem].notice}} <a href="{{digs[whichItem].anchor2}}">{{digs[whichItem].link}}</a> {{digs[whichItem].notice2}} <a href="{{digs[whichItem].anchor3}}">{{digs[whichItem].link2}}</a></h3>	
 		  <div class="col-md-6">
-		  	<p class="dig-text">{{digs[whichItem].text}}</p> 
-		  	<h3>{{digs[whichItem].notice}} <a href="{{digs[whichItem].anchor2}}">{{digs[whichItem].link}}</a></h3>		  	
+		  	<p class="dig-text">{{digs[whichItem].text}}</p> 	  	
 	    </div>
 	    <div class="col-md-6">
 	    	<div ng-repeat="image in digs[whichItem].images">
@@ -17,7 +17,6 @@
 	      <div id="{{digs[whichItem].id}}">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="4000">
 
-					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner" role="listbox" ng-repeat="image in digs[whichItem].images">
 					    <div class="item active">
 					      <img ng-src="{{image.image2}}" class="img-responsive">
@@ -43,11 +42,31 @@
 		 	    <img src="{{sideImage}}" class="img-responsive">
 		 	  </div>
 		  </div> -->
+
 		</div>
 		<br>
-		<div class="row" id="{{digs[whichItem].id}}">
-			<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?&q=39.355422,-9.3813061&key=AIzaSyBbqgucg9T3X4a9MwtZvzYPYKNn-fg81nI&zoom=10" allowfullscreen></iframe>
+		<div id="{{digs[whichItem].id}}">
+			<hr>
+	    <div class="row find-row">
+	    	<h2>The Finds</h2>
+	    	<div ng-repeat="find in digs[whichItem].finds">
+					<div class="col-md-4 col-xs-12 find-tile">
+						<a class="my-tooltip" title="{{find.tooltip1}}"><img ng-src="{{find.findImg1}}" class="find-img img-responsive"></a>
+					</div>   
+					<div class="col-md-4 col-xs-12 find-tile">
+						<a class="my-tooltip" title="{{find.tooltip2}}"><img ng-src="{{find.findImg2}}" class="find-img img-responsive"></a>
+					</div>
+					<div class="col-md-4 col-xs-12 find-tile">
+						<a class="my-tooltip" title="{{find.tooltip3}}"><img ng-src="{{find.findImg3}}" class="find-img img-responsive"></a>
+					</div>						 	
+				</div>
+	    </div>
+	    <hr>		
+			<h2>Location</h2>
+			<br>
+
+			<div id="map"></div>
 		</div>
 	</div>
-	<div class="back-to"><a href="#main">&laquo; Back</a></div>
+	<div class="back-to" ng-mouseenter="swing = 'swing-ani'" ng-mouseleave="swing = ''"><a href="#main"><span class="{{swing}}">&laquo;</span> Back</a></div>
 </section>

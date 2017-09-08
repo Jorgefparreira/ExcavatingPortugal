@@ -1,14 +1,9 @@
+@import 'mixins';
 @import 'dig';
-@import 'mediaQ';
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville");
 
 body {
-  background-color: #3c3c3d;
-}
-
-#map {
-  height: 400px;
-  width: 1000px;
+  background-color: #3c3c3d !important;
 }
 
 html, 
@@ -32,6 +27,7 @@ a:hover {
 
 p,
 h1,
+h2,
 h3 {
   color: #f2f2f2;  
 }
@@ -58,17 +54,20 @@ p {
   color: #444;
 }
 
+.cover {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
 .tile {
   display: inline-block;
   overflow: hidden;
 }
 
-.tile:hover {
-  opacity: 0.9;
-}
-
 .tile img {
   border-radius: 10px;
+  @include transition(0.6s);
 }
 
 .image1 {
@@ -103,10 +102,28 @@ p {
   display: none;
 }
 
+
 .tile-descr h3 {
-  color: #fff;
+  position: absolute;
   margin: 0;
-  line-height: 0;
+  bottom: -10px;
+}
+
+.title-show {
+  display: block;
+}
+
+.tile-fade {
+  opacity: 0.5;
+}
+
+.ng-enter {
+  @include transition(1s);
+  opacity: 0;
+}
+
+.ng-enter-active {
+  opacity: 1;
 }
 
 footer {
@@ -128,34 +145,21 @@ footer {
   padding : 5px auto !important;
 }
 
-@media (max-width: 800px) {
-  .image1 {
-    grid-column: span 6;
-  }
+.img-bounce:hover {
+  @include animation(bounce 0.8s linear infinite alternate);  
+}
 
-  .image2 {
-    grid-column: span 4;
-  }
-
-  .image1 img,
-  .image2 img {
-    height: 300px;
-  }
-
-  .image3 {
-    display: none;
-  }
-
-  .image4 {
-    grid-column: span 10;
-    grid-row: span 3;
+@media (max-width: 900px) {
+  .tile-descr h3 {
+    padding-right: 40px;
   }
 
   .tile-descr {
     display: block;
   }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 800px) {
   .tile {
     border-radius: 0;
     grid-column: span 10;
@@ -168,6 +172,18 @@ footer {
   .header {
     font-size: 0.8em;
   }
+ 
+
+}
+@media (max-width: 600px) {
+  .tile {
+    border-radius: 0;
+    grid-column: span 10;
+  }
+
+  .tile img {
+    width: 100%;
+  }
 
   .dig-gallery img {
     padding: 10px 0;
@@ -177,6 +193,10 @@ footer {
     font-size: 1.2em;
     font-weight: bold;
   }
+  .tooltip-inner {
+    max-width: 340px;
+    width: 340px; 
+  }  
 }
 
 @media (min-width: 766px) {
@@ -187,6 +207,9 @@ footer {
     float: right;
     margin: 0;
   }
+  .find-tile img:hover {
+    @include transform(scale(1.15));  
+  }   
 }
 
 

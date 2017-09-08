@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
   gutil = require('gulp-util'),
   sourcemaps = require('gulp-sourcemaps'),
-  sass = require('gulp-ruby-sass'),
+  sass = require('gulp-sass'),
   uglify = require('gulp-uglify'),
   pump = require('pump'),
   connect = require('gulp-connect'),
@@ -22,30 +22,18 @@ var jsCopySources = [
 // sass production conversion
 
 gulp.task('sass-pro', function () {
-  return sass('components/sass/styles.scss', {
-    sourcemap: true,
-    style: 'compressed'
-  })
-  .on('error', function (err) {
-    console.error('Error!', err.message);
-  })
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('builds/production/css'));
+  return gulp.src('components/sass/styles.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('builds/production/css'))
 });
 
 // sass development conversion
 
 gulp.task('sass-dev', function () {
-  return sass('components/sass/styles.scss', {
-    sourcemap: true,
-    style: 'expanded'
-  })
-  .on('error', function (err) {
-    console.error('Error!', err.message);
-  })
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest('builds/development/css'))
-  .pipe(connect.reload())
+  return gulp.src('components/sass/styles.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('builds/development/css'))
+    .pipe(connect.reload())
 });
 
 //js minification
