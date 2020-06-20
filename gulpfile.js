@@ -1,136 +1,66 @@
-var gulp = require('gulp'),
-  gutil = require('gulp-util'),
-  sourcemaps = require('gulp-sourcemaps'),
-  sass = require('gulp-sass'),
-  uglify = require('gulp-uglify'),
-  pump = require('pump'),
-  connect = require('gulp-connect'),
-  htmlmin = require('gulp-htmlmin'),
-  jsonminify = require('gulp-jsonminify'),
-  imagemin = require('gulp-imagemin');
-
-
-var jsMinSources = [
-  'builds/development/js/scripts.js'
-];
-
-var jsCopySources = [
-  'builds/development/js/scripts.js'
-
-];
-
-// sass production conversion
-
-gulp.task('sass-pro', function () {
-  return gulp.src('components/sass/styles.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('builds/production/css'))
-});
-
-// sass development conversion
-
-gulp.task('sass-dev', function () {
-  return gulp.src('components/sass/styles.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('builds/development/css'))
-    .pipe(connect.reload())
-});
-
-//js minification
+'use strict';
  
-gulp.task('js-min', function (cb) {
-  pump([
-      gulp.src(jsMinSources),
-      uglify(),
-      gulp.dest('builds/production/js')
-    ],
-    cb
-  );
-});
+const gulp = require('gulp');
+var browserSync = require('browser-sync').create();
 
-// json minification
+// Static server
+function server() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+};
 
-gulp.task('json-min', function () {
-  return gulp.src(['builds/development/js/*.json'])
-    .pipe(jsonminify())
-    .pipe(gulp.dest('builds/production/js/'));
-});
+exports.default = gulp.parallel(server);
 
-// html minification
+// const sass = require('gulp-sass');
+// sass.compiler = require('node-sass');
+// const concat = require('gulp-concat');
+// const htmlmin = require('gulp-htmlmin');
 
-gulp.task('html-min', function() {
-  return gulp.src('builds/development/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('builds/production'));  
-});
+// // INDEX PAGE
 
-// image minification
+// const concatPHP = () => {
+//   return gulp.src(['./src/components/php/header.php','./src/index.php','./src/components/php/footer.php'])
+//     .pipe(concat('index.php'))
+//     .pipe(gulp.dest('./public/'))
+// }
 
-gulp.task('image-min', function() {
-  gulp.src('builds/development/img/**/*.*')
-    .pipe(imagemin([
-      imagemin.jpegtran({progressive: true}),
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.svgo({plugins: [{removeViewBox: true}]})
-    ]))
-    .pipe(gulp.dest('builds/production/img/'))
-});
+// const movePages = () => {
+//   return gulp.src('./src/pages/*.js')
+//     .pipe(gulp.dest('./public/js/'))
+// }
 
-// gulp connect development
+// const sassDev = () => {
+//   return gulp.src('./src/scss/styles.scss')
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(gulp.dest('./public/css'))
+    
 
-gulp.task('connect-dev', function(){
-  connect.server({
-    root: 'builds/development/',
-    livereload: true
-  });
-});
+// }
 
-// gulp connect production
+// function watchFiles() {
+//   gulp.watch('src/scss/*.scss', sassDev);
+//   gulp.watch('src/pages/index.php', concatPHP);
+//   gulp.watch('src/components/php/*.php', concatPHP);
+//   gulp.watch('src/*.php', concatPHP);
+//   gulp.watch('src/pages/*.js', movePages);
+// }
 
-gulp.task('connect-pro', function(){
-  connect.server({
-    root: 'builds/production/',
-    livereload: true
-  });
-});
-
-// gulp watch
-
-gulp.task('watch', function() {
-  gulp.watch('components/sass/*.scss', ['sass-dev']);
-  gulp.watch('builds/development/*.html', ['html-copy']);
-  gulp.watch('builds/development/partials/*.html', ['partials-copy']);  
-  gulp.watch('builds/development/js/*.*', ['js-copy']);
-});
-
-// html changes
-
-gulp.task('html-copy', function() {
-  gulp.src('builds/development/*.html')
-    .pipe(gulp.dest('builds/production'))
-    .pipe(connect.reload())
-});
-
-// partials changes
-
-gulp.task('partials-copy', function() {
-  gulp.src('builds/development/partials/*.html')
-    .pipe(gulp.dest('builds/production/partials'))
-    .pipe(connect.reload())
-});
-
-// js changes
-
-gulp.task('js-copy', function () {
-  gulp.src('builds/development/js/*.*')
-    .pipe(gulp.dest('builds/production/js'))
-    .pipe(connect.reload())
-});
+// exports.default = gulp.parallel(watchFiles);
 
 
-gulp.task('live', ['watch', 'connect-dev']);
+// const sassBuild = () => {
+//   return gulp.src('./src/scss/styles.scss')
+//     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+//     .pipe(gulp.dest('./build/css'));
+// }
 
-gulp.task('pro', ['sass-pro', 'js-min', 'json-min', 'image-min', 'html-min']);
+// const htmlMinify = () => {
+//   return gulp.src('public/*.php')
+//     .pipe(htmlmin({ collapseWhitespace: true }))
+//     .pipe(gulp.dest('build'));
+// }
 
-gulp.task('default', ['sass-dev','js-copy', 'html-copy', 'partials-copy']);
-
+// exports.build = gulp.parallel(sassBuild, htmlMinify);

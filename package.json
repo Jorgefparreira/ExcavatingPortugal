@@ -1,9 +1,10 @@
 {
   "name": "excavating_portugal",
   "version": "1.0.0",
-  "description": "\"My excavations in Portugal\"",
+  "description": "My excavations in Portugal",
   "main": "index.js",
   "scripts": {
+    "start": "\"gulp\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,23 +14,8 @@
   "author": "Jorge Parreira",
   "license": "ISC",
   "devDependencies": {
-    "angular-carousel": "^1.1.0",
-    "browserify": "^14.4.0",
-    "compass": "^0.1.1",
-    "gulp": "^3.9.1",
-    "gulp-concat-js": "^0.1.0",
-    "gulp-connect": "^5.0.0",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-jsonminify": "^1.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "jquery": "^3.2.1",
-    "mustache": "^2.3.0",
-    "ngmap": "^1.18.4",
-    "pump": "^1.0.2",
-    "sass": "^1.0.0-beta.2"
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "nodemon": "^2.0.4"
   }
 }
