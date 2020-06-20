@@ -1,18 +1,34 @@
 'use strict';
  
 const gulp = require('gulp');
-var browserSync = require('browser-sync').create();
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
+const browserSync = require('browser-sync').create();
+const reload      = browserSync.reload;
 
 // Static server
 function server() {
     browserSync.init({
-        server: {
-            baseDir: "./"
-        }
+        proxy: "localhost:8000"
     });
 };
 
-exports.default = gulp.parallel(server);
+const sassDev = () => {
+    return gulp.src('./src/scss/styles.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest('./public/css'))
+      
+  
+  }
+
+function watchFiles() {
+    gulp.watch('src/scss/*.scss', sassDev);
+    gulp.watch("./public/**/*.*").on("change", reload);
+  }
+
+
+
+exports.default = gulp.parallel(server,watchFiles);
 
 // const sass = require('gulp-sass');
 // sass.compiler = require('node-sass');

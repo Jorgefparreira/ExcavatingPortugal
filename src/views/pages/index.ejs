@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../components/head')-%>
+  </head>
+  <body>    
+    <div class="main-container">
+      <section id="main">
+        <div class="container-fluid">
+          <div class="header"><h1>Excavating Portugal</h1></div>
+          <div class="wrapper">
+            <%data.forEach((dig, i) => {%>
+              <div class="tile image<%= i+1 %>">
+                <a href="<%= dig.anchor %>" >
+                  <img src="<%= dig.coverImage %>" class="img-responsive">
+                  <div class="tile-descr ">
+                    <h3><%= dig.name2 %></h3>
+                  </div>
+                </a>
+              </div>              
+            <%});%>
+          </div>
+        </div>	
+      </section>
+    </div>  
+
+    <%- include('../components/footer')-%>
+
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
