@@ -2,9 +2,9 @@
   "name": "excavating_portugal",
   "version": "1.0.0",
   "description": "My excavations in Portugal",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "concurrently  \"gulp\" \"nodemon ./index.js\"",
+    "dev": "concurrently  \"gulp\" \"nodemon ./server.js\"",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
