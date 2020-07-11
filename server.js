@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express(); 
 const port = process.env.PORT || "8000";
-const environment = process.env.NODE_ENV || 'development';
+const environment = process.env.PORT || 'development';
 let mongoUrl = '';
 let mapsCredential = '';
 if(environment === "development"){
