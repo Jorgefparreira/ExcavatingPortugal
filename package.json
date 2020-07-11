@@ -4,7 +4,8 @@
   "description": "My excavations in Portugal",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently  \"gulp\" \"nodemon ./index.js\"",
+    "dev": "concurrently  \"gulp\" \"nodemon ./index.js\"",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
