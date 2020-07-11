@@ -12,9 +12,9 @@
             <%data.forEach((dig, i) => {%>
               <div class="tile image<%= i+1 %>">
                 <a href="<%= dig.anchor %>" >
-                  <img src="<%= dig.coverImage %>" class="img-responsive">
+                  <img src="/img/<%= dig.anchor %>-thumb.jpg" class="img-responsive">
                   <div class="tile-descr ">
-                    <h3><%= dig.name2 %></h3>
+                    <h3><%= dig.name %></h3>
                   </div>
                 </a>
               </div>              
@@ -27,5 +27,8 @@
     <%- include('../components/footer')-%>
 
     <script src="/js/scripts.js"></script>
+    <script>
+      
+    </script>
   </body>
 </html>

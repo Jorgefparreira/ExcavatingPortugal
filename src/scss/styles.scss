@@ -1,4 +1,7 @@
-// @import url(https://fonts.googleapis.com/css?family=Libre + Baskerville);
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+@import 'mixins.scss';
+
 @keyframes bounce {
   50% {
     -webkit-transform: translateY(5px);
@@ -32,6 +35,18 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
+*{
+  font-family: 'Libre Baskerville', serif;
+}
+
+a{
+  color: #1a73e8;
+}
+
 img{
   max-width: 100%; 
 }
@@ -52,83 +67,10 @@ hr {
   animation: swing 0.4s linear infinite alternate;
   display: inline-block;
 }
-.back-to {
-  height: 30px;
-  width: 100px;
-  margin: 20px;
-  background-color: #3c3c3d;
-  border-radius: 15px;
-  border: 1px solid #f2f2f2;
-}
-.back-to a {
-  padding: 11px 14px;
-  font-size: 20px;
-  color: #f2f2f2;
-}
-.dig-gallery img {
-  padding: 0 20px 20px 20px;
-}
-.dig-text {
-  font-size: 1.3em;
-}
-.find-row {
-  padding-bottom: 15px;
-}
-.find-row h2 {
-  padding-left: 15px;
-}
-.find-tile {
-  align-items: center;
-  display: inline-block;
-  padding-top: 100px;
-}
-.find-tile img {
-  padding-top: 10px;
-  display: block;
-  margin: 0 auto;
-  opacity: 0.8;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-.tooltip {
-  padding-top: 10px;
-  font-size: 1.5em;
-  text-align: left;
-  z-index: -1;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-.my-tooltip + .tooltip > .tooltip-arrow {
-  border-color: #3c3c3d !important;
-}
-.my-tooltip + .tooltip > .tooltip-inner {
-  background-color: transparent;
-}
-.tooltip-inner {
-  max-width: 450px;
-  width: 450px;
-}
-#dig3,
-#dig4,
-#dig5 {
-  display: none;
-}
-#map {
-  height: 450px;
-  width: 100%;
-  background-color: #fff;
-  padding: 0 15px;
-  opacity: 0.8;
-}
+
 body {
   background-color: #242423;
-  background-image: url(https://www.transparenttextures.com/patterns/wall-4-light.png);
+  background-image: url('/img/background-texture.png');
 }
 body,
 html {
@@ -149,7 +91,6 @@ p {
 }
 h1 {
   font-size: 2.5em;
-  font-family: "Libre Baskerville", serif;
   padding: 10px 0;
   text-align: center;
 }
@@ -157,32 +98,57 @@ p {
   font-size: 1.3em;
   text-align: justify; 
 }
+
+// INDEX
+
 .wrapper {
-  width: 100%;
   margin-bottom: 10px;
-  overflow: hidden;
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(10, 9.3%);
+  grid-gap: 10px;
+  grid-template-columns: repeat(10, auto);
   color: #444;
+  .tile {
+    display: inline-block;
+    overflow: hidden;
+
+    img {
+      @include transition(0.6s);
+      @include transform(scale(1.04));
+    }
+    .tile-descr {
+      position: relative;
+      bottom: 20px;
+      left: 20px;
+      display: none;
+      margin-right: 20px;
+
+      h3 {
+        position: absolute;
+        margin: 0;
+        bottom: -10px;
+      }
+    }
+  }
 }
+
+.tile:hover {
+  .tile-descr{
+    display: block;
+  }
+
+  img{
+    opacity: 0.7;
+    @include transform(scale(1.1));
+  }
+} 
+
+
 .cover {
   height: 100%;
   width: 100%;
   background-color: #000;
 }
-.tile {
-  display: inline-block;
-  overflow: hidden;
-  background-color: #000;
-}
-.tile img {
-  -webkit-transition: 0.6s;
-  -moz-transition: 0.6s;
-  -ms-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s;
-}
+
 .image1 {
   grid-column: span 4;
   grid-row: span 3;
@@ -203,40 +169,91 @@ p {
   grid-column: span 3;
   grid-row: span 2;
 }
-.tile-descr {
-  position: relative;
-  bottom: 30px;
-  left: 20px;
+
+// DIG PAGE 
+
+.back-to {
+  height: 30px;
+  width: 100px;
+  margin: 20px;
+  background-color: #3c3c3d;
+  border-radius: 15px;
+  border: 1px solid #f2f2f2;
+}
+.back-to a {
+  padding: 11px 14px;
+  font-size: 20px;
+  color: #f2f2f2;
+}
+
+.dig-text {
+  font-size: 1.3em;
+}
+
+.slider-container{
+  display: flex;
+  align-items: center;
+}
+
+.find-row {
+  padding-bottom: 15px;
+}
+.find-row h2 {
+  padding-left: 15px;
+}
+.find-tile {
+  align-items: center;
+  display: inline-block;
+  padding-top: 100px;
+  cursor: pointer;
+
+  p{
+    font-size: 17px;
+    position: absolute;
+    top: 0px;
+    right: -60px;
+    left: 60px;
+    opacity: 0;
+    @include transition(600ms);
+  }
+
+  img {
+    padding-top: 10px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+    @include transition(all 0.5s ease-out);
+  }
+}
+
+.find-tile:hover{
+  p {
+    right: -40px;
+    left: 40px;
+    opacity: 1;
+  }
+
+  img{
+    @include transform(scale(1.15));
+  }
+} 
+
+
+#dig3,
+#dig4,
+#dig5 {
   display: none;
-  margin-right: 20px;
 }
-.tile-descr h3 {
-  position: absolute;
-  margin: 0;
-  bottom: -10px;
+#map {
+  height: 450px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 15px;
+  opacity: 0.8;
 }
-.title-show {
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  display: block;
-}
-.tile-fade {
-  opacity: 0.5;
-}
-.ng-enter {
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-}
-.ng-enter-active {
-  opacity: 1;
-}
+
+// FOOTER
+
 footer {
   height: 50px;
   border-top: 2px solid #f2f2f2;
@@ -287,16 +304,9 @@ footer {
   .tile img {
     width: 100%;
   }
-  .dig-gallery img {
-    padding: 10px 0;
-  }
   h3 {
     font-size: 1.2em;
     font-weight: 700;
-  }
-  .tooltip-inner {
-    max-width: 340px;
-    width: 340px;
   }
 }
 @media (min-width: 766px) {
@@ -306,12 +316,5 @@ footer {
   #copyright p {
     float: right;
     margin: 0;
-  }
-  .find-tile img:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15);
   }
 }

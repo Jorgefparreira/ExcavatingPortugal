@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../components/head')-%>
+</head>
+
+<body>
+  <section>
+    <div class="container-fluid">
+      <div class="header">
+        <h1><%= data.name %></h1>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="dig-text"><%= data.text %></p>
+        </div>
+        <div class="col-md-6 slider-container">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <%data['images'].forEach((image) => {%>
+              <div class="swiper-slide"><img src="/img/<%= image %>"></div>
+              <%});%>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div id="{{digs[whichItem].id}}">
+        <hr>
+        <div class="row find-row">
+          <div class="col-12">
+            <h2>The Finds</h2>
+          </div>
+          <%data['finds'].forEach((find) => {%>
+          <div class="col-md-4 col-xs-12 find-tile">
+            <p><%= find.text %></p>
+            <img src="/img/<%= find.img %>">
+          </div>
+          <%});%>
+        </div>
+        <hr>
+        <h2>Location</h2>
+        <br>
+
+        <div id="map"></div>
+      </div>
+    </div>
+    <div class="back-to" ng-mouseenter="swing = 'swing-ani'" ng-mouseleave="swing = ''"><a href="/"><span class="{{swing}}">&laquo;</span> Back</a></div>
+  </section>
+
+  <%- include('../components/footer')-%>
+
+  <script src="/js/swiper.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= mapsCredential %>&callback=initMap" defer></script>
+  <script src="/js/scripts.js"></script>
+  <script>
+
+    // MAP
+
+    const coordinates = {
+      lat: '<%= data.coordinates.lat %>',
+      long: '<%= data.coordinates.long %>'
+    }
+    let map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: parseFloat(coordinates.lat), lng: parseFloat(coordinates.long) },
+        zoom: 8
+      });
+      let marker = new google.maps.Marker({ position: { lat: parseFloat(coordinates.lat), lng: parseFloat(coordinates.long) }, map: map });
+    }
+
+    // IMAGE SWIPER
+
+    var mySwiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+    })
+  </script>
+</body>
+
+</html>

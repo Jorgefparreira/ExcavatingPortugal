@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "pug": "^3.0.0"
+    "mongodb": "^3.5.9",
+    "pug": "^3.0.0",
+    "swiper": "^5.4.5"
   }
 }

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 @keyframes bounce {
   50% {
     -webkit-transform: translateY(5px);
@@ -26,6 +27,15 @@
     -o-transform: translateX(-2px);
     transform: translateX(-2px); } }
 
+body {
+  overflow-x: hidden; }
+
+* {
+  font-family: 'Libre Baskerville', serif; }
+
+a {
+  color: #1a73e8; }
+
 img {
   max-width: 100%; }
 
@@ -45,83 +55,9 @@ hr {
   animation: swing 0.4s linear infinite alternate;
   display: inline-block; }
 
-.back-to {
-  height: 30px;
-  width: 100px;
-  margin: 20px;
-  background-color: #3c3c3d;
-  border-radius: 15px;
-  border: 1px solid #f2f2f2; }
-
-.back-to a {
-  padding: 11px 14px;
-  font-size: 20px;
-  color: #f2f2f2; }
-
-.dig-gallery img {
-  padding: 0 20px 20px 20px; }
-
-.dig-text {
-  font-size: 1.3em; }
-
-.find-row {
-  padding-bottom: 15px; }
-
-.find-row h2 {
-  padding-left: 15px; }
-
-.find-tile {
-  align-items: center;
-  display: inline-block;
-  padding-top: 100px; }
-
-.find-tile img {
-  padding-top: 10px;
-  display: block;
-  margin: 0 auto;
-  opacity: 0.8;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out; }
-
-.tooltip {
-  padding-top: 10px;
-  font-size: 1.5em;
-  text-align: left;
-  z-index: -1;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out; }
-
-.my-tooltip + .tooltip > .tooltip-arrow {
-  border-color: #3c3c3d !important; }
-
-.my-tooltip + .tooltip > .tooltip-inner {
-  background-color: transparent; }
-
-.tooltip-inner {
-  max-width: 450px;
-  width: 450px; }
-
-#dig3,
-#dig4,
-#dig5 {
-  display: none; }
-
-#map {
-  height: 450px;
-  width: 100%;
-  background-color: #fff;
-  padding: 0 15px;
-  opacity: 0.8; }
-
 body {
   background-color: #242423;
-  background-image: url(https://www.transparenttextures.com/patterns/wall-4-light.png); }
+  background-image: url("/img/background-texture.png"); }
 
 body,
 html {
@@ -142,7 +78,6 @@ p {
 
 h1 {
   font-size: 2.5em;
-  font-family: "Libre Baskerville", serif;
   padding: 10px 0;
   text-align: center; }
 
@@ -151,30 +86,45 @@ p {
   text-align: justify; }
 
 .wrapper {
-  width: 100%;
   margin-bottom: 10px;
-  overflow: hidden;
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(10, 9.3%);
+  grid-gap: 10px;
+  grid-template-columns: repeat(10, auto);
   color: #444; }
+  .wrapper .tile {
+    display: inline-block;
+    overflow: hidden; }
+    .wrapper .tile img {
+      -webkit-transition: 0.6s;
+      -o-transition: 0.6s;
+      transition: 0.6s;
+      -webkit-transform: scale(1.04);
+      -ms-transform: scale(1.04);
+      transform: scale(1.04); }
+    .wrapper .tile .tile-descr {
+      position: relative;
+      bottom: 20px;
+      left: 20px;
+      display: none;
+      margin-right: 20px; }
+      .wrapper .tile .tile-descr h3 {
+        position: absolute;
+        margin: 0;
+        bottom: -10px; }
+
+.tile:hover .tile-descr {
+  display: block; }
+
+.tile:hover img {
+  opacity: 0.7;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1); }
 
 .cover {
   height: 100%;
   width: 100%;
   background-color: #000; }
-
-.tile {
-  display: inline-block;
-  overflow: hidden;
-  background-color: #000; }
-
-.tile img {
-  -webkit-transition: 0.6s;
-  -moz-transition: 0.6s;
-  -ms-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s; }
 
 .image1 {
   grid-column: span 4;
@@ -196,39 +146,77 @@ p {
   grid-column: span 3;
   grid-row: span 2; }
 
-.tile-descr {
-  position: relative;
-  bottom: 30px;
-  left: 20px;
-  display: none;
-  margin-right: 20px; }
+.back-to {
+  height: 30px;
+  width: 100px;
+  margin: 20px;
+  background-color: #3c3c3d;
+  border-radius: 15px;
+  border: 1px solid #f2f2f2; }
 
-.tile-descr h3 {
-  position: absolute;
-  margin: 0;
-  bottom: -10px; }
+.back-to a {
+  padding: 11px 14px;
+  font-size: 20px;
+  color: #f2f2f2; }
 
-.title-show {
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  display: block; }
+.dig-text {
+  font-size: 1.3em; }
 
-.tile-fade {
-  opacity: 0.5; }
+.slider-container {
+  display: flex;
+  align-items: center; }
 
-.ng-enter {
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0; }
+.find-row {
+  padding-bottom: 15px; }
 
-.ng-enter-active {
+.find-row h2 {
+  padding-left: 15px; }
+
+.find-tile {
+  align-items: center;
+  display: inline-block;
+  padding-top: 100px;
+  cursor: pointer; }
+  .find-tile p {
+    font-size: 17px;
+    position: absolute;
+    top: 0px;
+    right: -60px;
+    left: 60px;
+    opacity: 0;
+    -webkit-transition: 600ms;
+    -o-transition: 600ms;
+    transition: 600ms; }
+  .find-tile img {
+    padding-top: 10px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out; }
+
+.find-tile:hover p {
+  right: -40px;
+  left: 40px;
   opacity: 1; }
+
+.find-tile:hover img {
+  -webkit-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15); }
+
+#dig3,
+#dig4,
+#dig5 {
+  display: none; }
+
+#map {
+  height: 450px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 15px;
+  opacity: 0.8; }
 
 footer {
   height: 50px;
@@ -273,24 +261,13 @@ footer {
     grid-column: span 10; }
   .tile img {
     width: 100%; }
-  .dig-gallery img {
-    padding: 10px 0; }
   h3 {
     font-size: 1.2em;
-    font-weight: 700; }
-  .tooltip-inner {
-    max-width: 340px;
-    width: 340px; } }
+    font-weight: 700; } }
 
 @media (min-width: 766px) {
   #copyright {
     float: right; }
   #copyright p {
     float: right;
-    margin: 0; }
-  .find-tile img:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15); } }
+    margin: 0; } }
