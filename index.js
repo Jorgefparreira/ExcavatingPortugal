@@ -1,14 +1,18 @@
 const express = require("express");
 const path = require("path");
-const data = require("./public/js/data.json");
-const mongoUrl = require("./config.js").mongoUrl;
-const MongoClient = require('mongodb').MongoClient;
-const mapsCredential = require('./config.js').mapsCredential;
-
 const app = express(); 
 const port = process.env.PORT || "8000";
 const environment = process.env.NODE_ENV || 'development';
-console.log(environment)
+let mongoUrl = '';
+let mapsCredential = '';
+if(environment === "development"){
+  mongoUrl = require("./config.js").mongoUrl;
+  mapsCredential = require('./config.js').mapsCredential;
+} else {
+  mongoUrl = process.env.mongoUrl;
+  mapsCredential = process.env.mapsCredential;
+}
+const MongoClient = require('mongodb').MongoClient;
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs')
