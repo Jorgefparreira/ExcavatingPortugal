@@ -1,54 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 
-@import 'mixins.scss';
-
-@keyframes bounce {
-  50% {
-    -webkit-transform: translateY(5px);
-    -moz-transform: translateY(5px);
-    -ms-transform: translateY(5px);
-    -o-transform: translateY(5px);
-    transform: translateY(5px);
-  }
-  80% {
-    -webkit-transform: translateY(-5px);
-    -moz-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    -o-transform: translateY(-5px);
-    transform: translateY(-5px);
-  }
-}
-@keyframes swing {
-  0% {
-    -webkit-transform: translateX(2px);
-    -moz-transform: translateX(2px);
-    -ms-transform: translateX(2px);
-    -o-transform: translateX(2px);
-    transform: translateX(2px);
-  }
-  100% {
-    -webkit-transform: translateX(-2px);
-    -moz-transform: translateX(-2px);
-    -ms-transform: translateX(-2px);
-    -o-transform: translateX(-2px);
-    transform: translateX(-2px);
-  }
-}
+@import "keyframes.scss";
 
 body {
   overflow-x: hidden;
 }
 
-*{
-  font-family: 'Libre Baskerville', serif;
+* {
+  font-family: "Libre Baskerville", serif;
 }
 
-a{
+a {
   color: #1a73e8;
 }
 
-img{
-  max-width: 100%; 
+img {
+  max-width: 100%;
 }
 
 hr {
@@ -59,18 +26,10 @@ hr {
   color: #f2f2f2;
   text-align: center;
 }
-.swing-ani {
-  -webkit-animation: swing 0.4s linear infinite alternate;
-  -moz-animation: swing 0.4s linear infinite alternate;
-  -ms-animation: swing 0.4s linear infinite alternate;
-  -o-animation: swing 0.4s linear infinite alternate;
-  animation: swing 0.4s linear infinite alternate;
-  display: inline-block;
-}
 
 body {
   background-color: #242423;
-  background-image: url('/img/background-texture.png');
+  background-image: url("/img/background-texture.png");
 }
 body,
 html {
@@ -96,7 +55,7 @@ h1 {
 }
 p {
   font-size: 1.3em;
-  text-align: justify; 
+  text-align: justify;
 }
 
 // INDEX
@@ -132,16 +91,15 @@ p {
 }
 
 .tile:hover {
-  .tile-descr{
+  .tile-descr {
     display: block;
   }
 
-  img{
+  img {
     opacity: 0.7;
     @include transform(scale(1.1));
   }
-} 
-
+}
 
 .cover {
   height: 100%;
@@ -170,27 +128,13 @@ p {
   grid-row: span 2;
 }
 
-// DIG PAGE 
-
-.back-to {
-  height: 30px;
-  width: 100px;
-  margin: 20px;
-  background-color: #3c3c3d;
-  border-radius: 15px;
-  border: 1px solid #f2f2f2;
-}
-.back-to a {
-  padding: 11px 14px;
-  font-size: 20px;
-  color: #f2f2f2;
-}
+// DIG PAGE
 
 .dig-text {
   font-size: 1.3em;
 }
 
-.slider-container{
+.slider-container {
   display: flex;
   align-items: center;
 }
@@ -207,7 +151,7 @@ p {
   padding-top: 100px;
   cursor: pointer;
 
-  p{
+  p {
     font-size: 17px;
     position: absolute;
     top: 0px;
@@ -226,30 +170,47 @@ p {
   }
 }
 
-.find-tile:hover{
+.find-tile:hover {
   p {
     right: -40px;
     left: 40px;
     opacity: 1;
   }
 
-  img{
+  img {
     @include transform(scale(1.15));
   }
-} 
-
-
-#dig3,
-#dig4,
-#dig5 {
-  display: none;
 }
+
 #map {
   height: 450px;
   width: 100%;
   background-color: #fff;
   padding: 0 15px;
   opacity: 0.8;
+}
+
+.back-to {
+  height: 30px;
+  width: 100px;
+  margin: 20px;
+  background-color: #3c3c3d;
+  border-radius: 15px;
+  border: 1px solid #f2f2f2;
+  
+  a {
+    padding: 11px 14px;
+    font-size: 20px;
+    color: #f2f2f2;
+    text-decoration: none;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.back-to:hover span {
+  @include animation(swing 0.4s linear infinite alternate);
+  display: inline-block;
 }
 
 // FOOTER

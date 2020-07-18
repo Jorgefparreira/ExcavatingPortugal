@@ -31,7 +31,7 @@ body {
   overflow-x: hidden; }
 
 * {
-  font-family: 'Libre Baskerville', serif; }
+  font-family: "Libre Baskerville", serif; }
 
 a {
   color: #1a73e8; }
@@ -46,14 +46,6 @@ hr {
   border-top: medium solid #8c8c8c;
   color: #f2f2f2;
   text-align: center; }
-
-.swing-ani {
-  -webkit-animation: swing 0.4s linear infinite alternate;
-  -moz-animation: swing 0.4s linear infinite alternate;
-  -ms-animation: swing 0.4s linear infinite alternate;
-  -o-animation: swing 0.4s linear infinite alternate;
-  animation: swing 0.4s linear infinite alternate;
-  display: inline-block; }
 
 body {
   background-color: #242423;
@@ -146,19 +138,6 @@ p {
   grid-column: span 3;
   grid-row: span 2; }
 
-.back-to {
-  height: 30px;
-  width: 100px;
-  margin: 20px;
-  background-color: #3c3c3d;
-  border-radius: 15px;
-  border: 1px solid #f2f2f2; }
-
-.back-to a {
-  padding: 11px 14px;
-  font-size: 20px;
-  color: #f2f2f2; }
-
 .dig-text {
   font-size: 1.3em; }
 
@@ -206,17 +185,32 @@ p {
   -ms-transform: scale(1.15);
   transform: scale(1.15); }
 
-#dig3,
-#dig4,
-#dig5 {
-  display: none; }
-
 #map {
   height: 450px;
   width: 100%;
   background-color: #fff;
   padding: 0 15px;
   opacity: 0.8; }
+
+.back-to {
+  height: 30px;
+  width: 100px;
+  margin: 20px;
+  background-color: #3c3c3d;
+  border-radius: 15px;
+  border: 1px solid #f2f2f2; }
+  .back-to a {
+    padding: 11px 14px;
+    font-size: 20px;
+    color: #f2f2f2;
+    text-decoration: none;
+    position: relative;
+    top: 2px; }
+
+.back-to:hover span {
+  -webkit-animation: swing 0.4s linear infinite alternate;
+  animation: swing 0.4s linear infinite alternate;
+  display: inline-block; }
 
 footer {
   height: 50px;
